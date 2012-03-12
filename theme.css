@@ -17,7 +17,7 @@ columns,
 footer,links,copyright
   {display: block;}
 social,search,connect,
-story,headlines,ads
+story,headlines
   {display: inline-block;}
 // *{border: 1px solid red; }
 
@@ -32,6 +32,7 @@ body {
   background-image: -moz-linear-gradient(bottom, rgb(191,197,219) 0%, rgb(232,218,232) 100%);
   background-image: -webkit-linear-gradient(bottom, rgb(191,197,219) 0%, rgb(232,218,232) 100%);
   background-image: -ms-linear-gradient(bottom, rgb(191,197,219) 0%, rgb(232,218,232) 100%);
+  padding-bottom: 20px;
 }
 wrapper {
   width: 950px;
@@ -182,7 +183,7 @@ linkbars ul {
   height: 20px;
 }
 linkbars ul li {
-  margin:0;padding:5px 10px;
+  margin:0;padding:8px 10px;
   list-style:none;
   float: left;
   font-family: 'RobotoBoldCondensed';
@@ -194,6 +195,7 @@ linkbars ul li {
 linkbars ul li:first-child {
   color: #444;
 }
+h1,h2,h3,h4,h5,h6,h7 { margin:0;padding:0;}
 h1, h3, h5 { color: #f00; }
 h2, h4, h6 { color: #000; }
 columns {
@@ -201,6 +203,7 @@ columns {
 feature {
   text-align: center;
   font-size: 16px;
+  margin-top: 10px;
 }
 h2 {
   font-style: italic;
@@ -216,19 +219,72 @@ feature h6 {
   font-style: italic;
   font-weight: normal;
 }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-align: center;
+}
 p {
   font: 12px/16px "Helvetica Neue", Helvetica, Arial, sans-serif
 }
 story {
-  width: 400px;
+  width: 475px;
+  padding: 10px;
+  float: left;
+}
+story p {
   font: 12px/16px "Helvetica Neue", Helvetica, Arial, sans-serif
 }
 headlines {
-  width: 270px;
+  width: 475px;
+  padding: 10px;
+  display: inline-block;
+  margin: 0; padding: 0;
+  float: left;
 }
-ads {
-  width: 250px;
+headlines div {
+  margin: 10px 40px;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
 }
-ads img, headlines img, feature img {
+story img {
   width: 100%;
+  padding-bottom: 20px;
+}
+story p, story h1,
+story h2,
+story h3,
+story h4,
+story h5,
+story h6
+ {
+  padding-bottom: 20px;
+}
+headlines div, ads div {
+}
+headlines img {
+  width: 100%;
+  margin-top: 20px;
+}
+ads img, feature img {
+  width: 100%;
+}
+
+footer {
+  padding: 20px;
+}
+footer links {
+  width: 100%;
+  background: -webkit-gradient(linear, left top, left bottom, from(#F7F7F7), to(white));
+  background: -moz-linear-gradient(top, #F7F7F7, white);
+  border: 1px solid #DFDFDF;
+  padding: 10px;
+}
+footer copyright {
+  padding: 50px;
+  text-align: center;
+  font: 12px/16px "Helvetica Neue", Helvetica, Arial, sans-serif;
 }

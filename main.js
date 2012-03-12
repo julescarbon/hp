@@ -19,30 +19,45 @@ $(function(){
     };
     return tags;
   }
+  function first_half (list) {
+    return list.splice(0, Math.floor(list.length/2))
+  }
+  function second_half (list) {
+    var half = Math.floor(list.length/2);
+    return list.splice(half, list.length - half);
+  }
   function parse_post(post, tags) {
-    var tags = tags || [];
+    var this_tags = [];
     switch (post.type) {
       case 'photo':
-        if (post['photo-caption'].length > 60 && tags.length === 0) {
+        if (post['photo-caption'].length > 60 && tags) {
           if (post['photo-url-1280'].length > 0)
-            tags.push( image_tag(post['photo-url-1280']) );
-          tags.push( post['photo-caption'] );
+            this_tags.push( image_tag(post['photo-url-1280']) );
+          this_tags.push( post['photo-caption'] );
         }
         else if (post['photo-caption'].length > 0) {
-          tags.push( post['photo-caption'] );
+          this_tags.push( post['photo-caption'] );
           if (post['photo-url-1280'].length > 0)
-            tags.push( image_tag(post['photo-url-1280']) );
+            this_tags.push( image_tag(post['photo-url-1280']) );
         } else {
           if (post['photo-url-1280'].length > 0)
-            tags.push( image_tag(post['photo-url-1280']) );
+            this_tags.push( image_tag(post['photo-url-1280']) );
         }
         break;
       case 'text':
       default:
-        tags.push( image_tag(post['photo-url-1280']) );
+        this_tags.push( image_tag(post['photo-url-1280']) );
         break;
     };
-    return tags.length ? tags : null;
+    if (this_tags.length)
+      this_tags = "<div>" + this_tags.join("") + "</div>";
+    if (tags)
+      tags.push(this_tags);
+    else
+      return this_tags;
+  }
+  function fix_heights (){
+    $("columns").height(Math.max($("story").height(), $("headlines").height()));
   }
   function Header () {
     var dd = new Date();
@@ -71,13 +86,22 @@ $(function(){
     }
     var feature = real_posts.shift();
     var headlines = parse(real_posts);
-    $("feature").html(parse_post(feature).join(""));
-    $("headlines").html(headlines.join("<br>"));
+    $("feature").html(parse_post(feature));
+
+    $("story").html(first_half(headlines).join(""));
+
+    var two = second_half(headlines);
+    $("headlines").append(two.join(""));
+    $("p").each(function(){
+      this.innerHTML.length === 0 && $(this).remove();
+    });
+    $("img").load(fix_heights);
   });
 
   // ads
   Tumblr({"tagged": "ad"}, function(data){
-    $("ads").html(parse(data.posts).join("<br>"));
+    $("headlines").prepend(parse(data.posts).join(""));
+    fix_heights();
   });
 });
 
