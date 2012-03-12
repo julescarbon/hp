@@ -13,12 +13,13 @@ preamble,login,blather,
 header,date,logo,tagline,
 linkbars,
 feature,
-columns,story,headlines,ads,ad,
+columns,
 footer,links,copyright
   {display: block;}
-social,search,connect
+social,search,connect,
+story,headlines,ads
   {display: inline-block;}
-// *{border: 1px solid red; }
+*{border: 1px solid red; }
 
 html,body {
   width: 100%;
@@ -31,7 +32,6 @@ body {
   background-image: -moz-linear-gradient(bottom, rgb(191,197,219) 0%, rgb(232,218,232) 100%);
   background-image: -webkit-linear-gradient(bottom, rgb(191,197,219) 0%, rgb(232,218,232) 100%);
   background-image: -ms-linear-gradient(bottom, rgb(191,197,219) 0%, rgb(232,218,232) 100%);
-  font: 12px/16px Arial, "Helvetica Neue", Helvetica, sans-serif
 }
 wrapper {
   width: 950px;
@@ -192,4 +192,32 @@ linkbars ul li {
 }
 linkbars ul li:first-child {
   color: #444;
+}
+h1, h3, h5 { color: #f00; }
+h2, h4, h6 { color: #000; }
+columns {
+}
+feature {
+  font-size: 16px;
+}
+feature h1
+feature h2
+feature h3
+feature h4
+feature h5
+feature h6 {
+  font-size: 48px;
+}
+story {
+  width: 400px;
+  font: 12px/16px Arial, "Helvetica Neue", Helvetica, sans-serif
+}
+headlines {
+  width: 270px;
+}
+ads {
+  width: 250px;
+}
+ads img, headlines img, feature img {
+  width: 100%;
 }
