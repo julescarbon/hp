@@ -1,15 +1,30 @@
 <!doctype html>
 <html>
 <head>
-<title>Huffing</title>
+<title>The Huffingtown Post</title>
 <link href="https://raw.github.com/julescarbon/hp/master/theme.css" rel="stylesheet" type="text/css"/>
 <link href="normalize.css" rel="stylesheet" type="text/css"/>
 <link href="theme.css" rel="stylesheet" type="text/css"/>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script src="handlebars-1.0.0.beta.6.js"></script>
 <script src="main.js"></script>
+<meta property="fb:app_id" content="48119224995" />
+<meta property="og:title" content="The Huffingtown Post" />
+<meta property="og:url" content="http://thehuffingtownpost.com/" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="tumblr-feed:tumblelog" />
+<meta property="og:image" content="http://28.media.tumblr.com/avatar_4be5e2a4d752_128.png" />
+<meta http-equiv="x-dns-prefetch-control" content="off"/>
 </head>
 <body>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "http://connect.facebook.net/en_US/all.js#xfbml=1&appId=218171344909847";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 
 <wrapper>
   <preamble>
@@ -32,7 +47,7 @@
 
     <linkbars>
       <social>
-        FACEBOOK
+<div class="fb-like" data-href="http://thehuffingtownpost.com" data-send="false" data-layout="button_count" data-width="250" data-show-faces="false" data-action="recommend"></div>
       </social>
       <search>
         <input type="text" placeholder="Search Quick Look At"><input type="submit" value="">
