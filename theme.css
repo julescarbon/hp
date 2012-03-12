@@ -1,5 +1,24 @@
 /* apply a natural box layout model to all elements */
 * { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+@font-face {
+  font-family: 'EB Garamond';
+  font-style: normal;
+  font-weight: normal;
+  src: local('EB Garamond'), local('EBGaramond'), url('http://themes.googleusercontent.com/static/fonts/ebgaramond/v4/kYZt1bJ8UsGAPRGnkXPeFbrIa-7acMAeDBVuclsi6Gc.woff') format('woff');
+}
+@font-face{font-family:'RobotoBoldCondensed';src:url('http://o.aolcdn.com/os/fonts/roboto/roboto-boldcondensed-latin-accent.eot');src:url('http://o.aolcdn.com/os/fonts/roboto/roboto-boldcondensed-latin-accent.eot?#iefix') format('embedded-opentype'), url('http://o.aolcdn.com/os/fonts/roboto/roboto-boldcondensed-latin-accent.woff') format('woff'), url('http://o.aolcdn.com/os/fonts/roboto/roboto-boldcondensed-latin-accent.ttf') format('truetype'), url('http://o.aolcdn.com/os/fonts/roboto/roboto-boldcondensed-latin-accent.svg#RobotoBoldCondensed') format('svg');font-weight:normal;font-style:normal;}
+
+wrapper,container,
+preamble,login,blather,
+header,date,logo,tagline,
+linkbars,
+feature,
+columns,story,headlines,ads,ad,
+footer,links,copyright
+  {display: block;}
+social,search,connect
+  {display: inline-block;}
+// *{border: 1px solid red; }
 
 html,body {
   width: 100%;
@@ -12,22 +31,165 @@ body {
   background-image: -moz-linear-gradient(bottom, rgb(191,197,219) 0%, rgb(232,218,232) 100%);
   background-image: -webkit-linear-gradient(bottom, rgb(191,197,219) 0%, rgb(232,218,232) 100%);
   background-image: -ms-linear-gradient(bottom, rgb(191,197,219) 0%, rgb(232,218,232) 100%);
+  font: 12px/16px Arial, "Helvetica Neue", Helvetica, sans-serif
+}
+wrapper {
+  width: 950px;
+  margin: 0 auto;
 }
 container {
-  display: block;
-  width: 1020px;
   background: #fff;
-  margin: 0 auto;
-  box-shadow: 0 0 10px #888;
-  -moz-box-shadow: 0 0 10px #888;
-  -webkit-box-shadow: 0 0 10px #888;
+  border-top: 2px solid #058B7B;
+  box-shadow: 0 5px 10px #888;
+  -moz-box-shadow: 0 5px 10px #888;
+  -webkit-box-shadow: 0 5px 10px #888;
 }
+preamble {
+  clear: both;
+  height: 30px;
+  font-weight: bold;
+}
+login {
+  padding: 7px;
+  float: right;
+  color: #888;
+}
+blather {
+  float: left;
+  width: 500px;
+}
+blather ul {
+  margin:0;padding:0;
+}
+blather ul li {
+  margin:0;padding:7px 10px;
+  list-style:none;
+  float: left;
+}
+blather ul li:hover {
+  background: white;
+}
+blather ul li:first-child {
+  float: left;
+  border-right: 1px solid #888;
+  background: #444;
+  color: #fff;
+}
+blather ul li a {
+  color: #444;
+  font-weight: bold;
+}
+
 header {
   text-align: center;
   width: 100%;
-  padding: 20px;
+  padding: 6px 6px 0 6px;
 }
 date {
   font-family: georgia, serif;
+  font-size: 12px;
+  padding: 0 0 10px 0;
+  color: #666;
+}
+logo {
+  font-family: 'EB Garamond', garamond, georgia, serif;
+  text-shadow: 1px 2px 2px #bbb;
+  color: #057B5B;
+  font-size: 42px;
+  line-height: 22px;
+  padding-bottom: 13px;
+  letter-spacing: 2px;
+  font-weight: 100px;
+}
+tagline {
+  font-family: 'EB Garamond', garamond, georgia, serif;
+  font-size: 12px;
+  padding: 0 0 6px 0;
+  letter-spacing: 2px;
+  color: #666;
+}
+linkbars {
+  padding: 10px;
+}
+social {
+  width: 300px;
+}
+search {
+  width: 300px;
+  text-align: center;
+}
+search input {
+  background: -webkit-gradient(linear, left top, left bottom, from(#F7F7F7), to(white));
+  background: -moz-linear-gradient(top, #F7F7F7, white);
+  border: 1px solid #DFDFDF;
+  display: inline-block;
+}
+search input[type=text] {
+  padding: 4px;
+  margin: 0;
+  font-size: 12px;
+  width: 200px;
+}
+search input[type=submit] {
+  background: url('http://s.huffpost.com/images/v/magnifyingglass.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  width: 24px;
+  height: 24px;
+  border: 1px solid #dfdfdf;
+  padding: 0;
+  border-left: 0;
+  margin: 0;
+  position: relative;
+  top: -4px;
+}
+connect {
+  width: 300px;
+  float: right;
+  text-align: right;
+}
+linkbars table {
+  width: 930px;
+  margin:5px 0 0 0;padding:0;
+  box-shadow: 0 5px 10px #888;
+  -moz-box-shadow: 0 5px 10px #888;
+  -webkit-box-shadow: 0 5px 10px #888;
+}
+linkbars table tr td {
+  background: #058B7B;
+  color: white;
+  text-align: center;
+  padding: 8px 2px;
+  border-right: 1px solid #ccc;
+  font-family: 'RobotoBoldCondensed';
+  font-size: 15px;
+  background: -moz-linear-gradient(top, #017667, #006F61);
+  background: -webkit-gradient(linear, left top, left bottom, from(#017667), to(#006F61));
+  background: progid:DXImageTransform.Microsoft.gradient(startColorstr='#017667', endColorstr='#006f61');
+  text-shadow: 0 0 1px #fff;
+}
+linkbars table tr td:first-child {
+  background: -moz-linear-gradient(top, #005347, #00463C);
+  background: -webkit-gradient(linear, left top, left bottom, from(#005347), to(#00463C));
+}
+linkbars table tr td:hover {
+  text-shadow: 0 0 0px #fff;
+  cursor: pointer;
+}
+linkbars ul {
+  margin:0;padding:0;
+  height: 20px;
+}
+linkbars ul li {
+  margin:0;padding:5px 10px;
+  list-style:none;
+  float: left;
+  font-family: 'RobotoBoldCondensed';
   font-size: 13px;
+  color: #058B7B;
+  text-shadow: 0 0 2px #fff, 0 0 2px #fff, 0 0 3px #fff, 0 0 3px #fff;
+  cursor: pointer;
+}
+linkbars ul li:first-child {
+  color: #444;
 }
