@@ -1,0 +1,33 @@
+/* apply a natural box layout model to all elements */
+* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+html,body {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+body {
+  background-image: linear-gradient(bottom, rgb(191,197,219) 0%, rgb(232,218,232) 100%);
+  background-image: -o-linear-gradient(bottom, rgb(191,197,219) 0%, rgb(232,218,232) 100%);
+  background-image: -moz-linear-gradient(bottom, rgb(191,197,219) 0%, rgb(232,218,232) 100%);
+  background-image: -webkit-linear-gradient(bottom, rgb(191,197,219) 0%, rgb(232,218,232) 100%);
+  background-image: -ms-linear-gradient(bottom, rgb(191,197,219) 0%, rgb(232,218,232) 100%);
+}
+container {
+  display: block;
+  width: 1020px;
+  background: #fff;
+  margin: 0 auto;
+  box-shadow: 0 0 10px #888;
+  -moz-box-shadow: 0 0 10px #888;
+  -webkit-box-shadow: 0 0 10px #888;
+}
+header {
+  text-align: center;
+  width: 100%;
+  padding: 20px;
+}
+date {
+  font-family: georgia, serif;
+  font-size: 13px;
+}
