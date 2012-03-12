@@ -19,7 +19,7 @@ footer,links,copyright
 social,search,connect,
 story,headlines,ads
   {display: inline-block;}
-*{border: 1px solid red; }
+// *{border: 1px solid red; }
 
 html,body {
   width: 100%;
@@ -46,8 +46,9 @@ container {
 }
 preamble {
   clear: both;
-  height: 30px;
+  height: 29px;
   font-weight: bold;
+  font: 12px/16px Arial, "Helvetica Neue", Helvetica, sans-serif
 }
 login {
   padding: 7px;
@@ -141,7 +142,7 @@ search input[type=submit] {
   border-left: 0;
   margin: 0;
   position: relative;
-  top: -4px;
+  top: -1px;
 }
 connect {
   width: 300px;
@@ -198,19 +199,29 @@ h2, h4, h6 { color: #000; }
 columns {
 }
 feature {
+  text-align: center;
   font-size: 16px;
 }
-feature h1
-feature h2
-feature h3
-feature h4
-feature h5
+h2 {
+  font-style: italic;
+  font-weight: normal;
+}
+feature h1,
+feature h2,
+feature h3,
+feature h4,
+feature h5,
 feature h6 {
   font-size: 48px;
+  font-style: italic;
+  font-weight: normal;
+}
+p {
+  font: 12px/16px "Helvetica Neue", Helvetica, Arial, sans-serif
 }
 story {
   width: 400px;
-  font: 12px/16px Arial, "Helvetica Neue", Helvetica, sans-serif
+  font: 12px/16px "Helvetica Neue", Helvetica, Arial, sans-serif
 }
 headlines {
   width: 270px;

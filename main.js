@@ -12,10 +12,10 @@ $(function(){
   function link_to (link, tag) {
     return "<a href=\"" + link + "\">" + tag + "</a>";
   }
-  function parse (data) {
+  function parse (posts) {
     var tag = null, tags = [];
-    for (var i in data.posts) {
-      parse_post(data.posts[i], tags);
+    for (var i in posts) {
+      parse_post(posts[i], tags);
     };
     return tags;
   }
@@ -23,10 +23,19 @@ $(function(){
     var tags = tags || [];
     switch (post.type) {
       case 'photo':
-        if (post['photo-caption'].length > 0)
+        if (post['photo-caption'].length > 60 && tags.length === 0) {
+          if (post['photo-url-1280'].length > 0)
+            tags.push( image_tag(post['photo-url-1280']) );
           tags.push( post['photo-caption'] );
-        if (post['photo-url-1280'].length > 0)
-          tags.push( image_tag(post['photo-url-1280']) );
+        }
+        else if (post['photo-caption'].length > 0) {
+          tags.push( post['photo-caption'] );
+          if (post['photo-url-1280'].length > 0)
+            tags.push( image_tag(post['photo-url-1280']) );
+        } else {
+          if (post['photo-url-1280'].length > 0)
+            tags.push( image_tag(post['photo-url-1280']) );
+        }
         break;
       case 'text':
       default:
@@ -54,16 +63,21 @@ $(function(){
   Header();
 
   // feature
-  Tumblr({"tagged": ""}, function(data){
-console.log(data);
-    var feature = data.posts.shift();
+  Tumblr({}, function(data){
+    var real_posts = [];
+    for (var i in data.posts) {
+      if (data.posts[i].tags) continue;
+      real_posts.push(data.posts[i])
+    }
+    var feature = real_posts.shift();
+    var headlines = parse(real_posts);
     $("feature").html(parse_post(feature).join(""));
-    $("headlines").html(parse(data).join("<br>"));
+    $("headlines").html(headlines.join("<br>"));
   });
 
   // ads
   Tumblr({"tagged": "ad"}, function(data){
-    $("ads").html(parse(data).join("<br>"));
+    $("ads").html(parse(data.posts).join("<br>"));
   });
 });
 
