@@ -24,9 +24,14 @@ story,headlines
 html,body {
   width: 100%;
   height: 100%;
+}
+html {
+  overflow-y: hidden;
   overflow-x: hidden;
 }
 body {
+  overflow-y: scroll;
+  overflow-x: hidden;
   background-image: linear-gradient(bottom, rgb(191,197,219) 0%, rgb(232,218,232) 100%);
   background-image: -o-linear-gradient(bottom, rgb(191,197,219) 0%, rgb(232,218,232) 100%);
   background-image: -moz-linear-gradient(bottom, rgb(191,197,219) 0%, rgb(232,218,232) 100%);
