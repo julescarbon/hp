@@ -1,6 +1,5 @@
 $(function(){
-  // set the date
-  
+
   var URL = "http://thehuffingtownpost.com/api/read";
   function image_tag (img, link) {
     if (! img || img === undefined) return "";
@@ -29,6 +28,11 @@ $(function(){
   function parse_post(post, tags) {
     var this_tags = [];
     switch (post.type) {
+      case 'regular': // reblog was coming through in this format
+        if (post['regular-body'].length > 0) {
+          this_tags.push( post['regular-body'] );
+        }
+        break;
       case 'photo':
         if (post['photo-caption'].length > 60 && tags) {
           if (post['photo-url-1280'].length > 0)
