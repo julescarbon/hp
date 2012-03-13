@@ -97,7 +97,7 @@ $(function(){
     var two = second_half(headlines);
     $("headlines").append(two.join(""));
     $("p").each(function(){
-      this.innerHTML.length === 0 && $(this).remove();
+      this.innerText.length === 0 && this.innerText.indexOf("img") === -1 && $(this).remove();
     });
     $("img").load(fix_heights);
   });
